@@ -1,0 +1,17 @@
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins&family=Roboto&display=swap');
+
+
+/* Common CSS */
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#main-part{
+    height: 815px;
+}
