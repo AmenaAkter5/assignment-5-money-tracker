@@ -32,36 +32,36 @@
                         <h3 class="mt-5 fw-bold text-center">Income</h3>
                         <div class="text-center">
                             <label>Income</label>
-                            <input type="text">
+                            <input id="income-input" type="text">
                         </div>
                     </div>
                     <div class="row g-2 align-items-center">
                         <h3 class="mt-5 fw-bold text-center">Expenses</h3>
                         <div class="text-center">
                             <label>Food</label>
-                            <input type="text">
+                            <input id="food-cost" type="text">
                         </div>
                         <div class="text-center">
                             <label>Rent</label>
-                            <input type="text">
+                            <input id="rent-cost" type="text">
                         </div>
                         <div class="text-center">
                             <label>Clothes</label>
-                            <input type="text">
+                            <input id="cloth-cost" type="text">
                         </div>
                     </div>
                     <div>
-                        <button>Calculate</button>
+                        <button id="calculate-button">Calculate</button>
                     </div>
                     <div class="row g-3 align-items-center">
-                        <h4 class="mt-5 fw-bold text-center">Total Expenses: 0</h4>
+                        <h4 class="mt-5 fw-bold text-center">Total Expenses: <span id="expense-field">0</span></h4>
                         <h4 class="mt-2 fw-bold text-center">Balance: 0</h4>
                     </div>
                     <div class="row g-3 align-items-center">
                         <div class="text-center">
                             <label>Save</label>
                             <input type="text">
-                            <button>Calculate</button>
+                            <button>Save</button>
                         </div>
                     </div>
                     <div class="row g-3 align-items-center">
@@ -76,6 +76,8 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script> -->
+
+    <script src="js/money.js"></script>
 
 </body>
 
