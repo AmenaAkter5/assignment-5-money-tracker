@@ -15,24 +15,27 @@ function getInputValue(inputId) {
     const inputValue = inputField.value;
     const newInputAmount = parseInt(inputValue);
 
-    // handle 'negative' input
+    // handle 'negative' input error
     if (newInputAmount < 0) {
         alert('You can not input the negative number here');
         return;
     }
-    // handle 'string' input
+
+    // handle 'string' input error
     else if (isNaN(newInputAmount)) {
         alert('please input the number');
         return;
     }
-    return newInputAmount;
+    else {
+        return newInputAmount;
+    }
 }
 
 
+// function - 2: update balance and balance field after expenses
 
-// function - 2: Add all Expenses
-
-function totalExpenses() {
+function updateBalance() {
+    const incomeAmount = getInputValue('income-input');
 
     // expense sectors
     const foodCost = getInputValue('food-cost');
@@ -41,14 +44,13 @@ function totalExpenses() {
 
     // total expense
     const totalExpense = foodCost + rentCost + clothCost;
-    const incomeAmount = getInputValue('income-input');
 
     // handle over expense input than income amount
     if (totalExpense > incomeAmount) {
         alert('You have not sufficient amount to expense more');
         return;
     }
-    // handle NaN error
+    // handle NaN input error of total expense
     else if (isNaN(totalExpense)) {
         return;
     }
@@ -57,23 +59,14 @@ function totalExpenses() {
     const expenseField = document.getElementById('expense-field');
     expenseField.innerText = totalExpense;
 
-    return totalExpense;
-}
-
-
-// function - 3: update balance and balance field
-
-function updateBalance() {
-    const incomeAmount = getInputValue('income-input');
-    const totalExpense = totalExpenses();
-
     // Balance
     const totalBalance = incomeAmount - totalExpense;
 
-    // handle NaN error
+    // handle NaN input error of total balance
     if (isNaN(totalBalance)) {
         return;
     }
+
     // update balance field
     const balanceFieldAmount = document.getElementById('total-balance');
     balanceFieldAmount.innerText = totalBalance;
@@ -82,22 +75,23 @@ function updateBalance() {
 }
 
 
-// function - 4: Savings Part
+// function - 3: Savings Part
 
 function savings() {
-    // const incomeAmount = getInputValue('income-input');
+    const incomeAmount = getInputValue('income-input');
     const savingsPercent = getInputValue('save-input');
 
     // get savings amount
     const savings = (incomeAmount * savingsPercent) / 100;
 
-    // handle NaN error
+    // handle NaN error of savings amount
     if (isNaN(savings)) {
         return;
     }
     // update savings amount field
     const saveField = document.getElementById('save-amount');
     saveField.innerText = savings;
+
     return savings;
 }
 
@@ -118,9 +112,11 @@ document.getElementById('calculate-button').addEventListener('click', function (
 // 2. save button handler
 
 document.getElementById('save-button').addEventListener('click', function () {
+
     const savingsAmount = savings();
     const balanceTotal = updateBalance();
 
+    // handle over savings input than balance amount
     if (savingsAmount > balanceTotal) {
         alert('You have not sufficient balance to save');
         return;
@@ -129,12 +125,14 @@ document.getElementById('save-button').addEventListener('click', function () {
     // Remaining Balance
     const remainingBalance = balanceTotal - savingsAmount;
 
-    // handle NaN error
+    // handle NaN error of saving amount
     if (isNaN(remainingBalance)) {
         return;
     }
+
     // update remaining balance field
     const reminingBalanceField = document.getElementById('remaining-balance');
+
     reminingBalanceField.innerText = remainingBalance;
 })
 
