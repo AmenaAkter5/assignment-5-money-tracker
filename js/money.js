@@ -102,14 +102,14 @@ function savings() {
 // ===========================================
 
 
-// 1. calculate button handler
+// 1. calculate button handler: 
 
 document.getElementById('calculate-button').addEventListener('click', function () {
     updateBalance();
 })
 
 
-// 2. save button handler
+// 2. save button handler:
 
 document.getElementById('save-button').addEventListener('click', function () {
 
