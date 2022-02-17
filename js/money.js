@@ -131,9 +131,9 @@ document.getElementById('save-button').addEventListener('click', function () {
     }
 
     // update remaining balance field
-    const reminingBalanceField = document.getElementById('remaining-balance');
+    const remainingBalanceField = document.getElementById('remaining-balance');
 
-    reminingBalanceField.innerText = remainingBalance;
+    remainingBalanceField.innerText = remainingBalance;
 })
 
 
