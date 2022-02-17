@@ -1,5 +1,11 @@
 
 
+// ===========================================
+//                 functions
+// ===========================================
+
+
+
 // function - 1: To get input value of every input field
 
 function getInputValue(inputId) {
@@ -9,6 +15,7 @@ function getInputValue(inputId) {
     const newInputAmount = parseInt(inputValue);
     return newInputAmount;
 }
+
 
 
 // function - 2: Add all Expenses
@@ -24,8 +31,8 @@ function totalExpenses() {
 
     // update total expense field
     const expenseField = document.getElementById('expense-field');
-
     expenseField.innerText = totalExpense;
+
     return totalExpense;
 }
 
@@ -33,38 +40,46 @@ function totalExpenses() {
 // function - 3: Savings Part
 
 function savings() {
-    const currentIncome = getInputValue('income-input');
-    const savingsInput = getInputValue('save-input');
+    const incomeAmount = getInputValue('income-input');
+    const savingsPercent = getInputValue('save-input');
 
     // get savings amount
-    const savings = (currentIncome * savingsInput) / 100;
+    const savings = (incomeAmount * savingsPercent) / 100;
 
     // update savings amount field
     const saveField = document.getElementById('save-amount');
     saveField.innerText = savings;
+    return savings;
 }
+
+
 
 // function - 4: update balance and remaining-balance amount
 
 function updateBalance() {
-    const currentIncome = getInputValue('income-input');
-    const expenseTotal = totalExpenses();
+    const incomeAmount = getInputValue('income-input');
+    const totalExpense = totalExpenses();
 
     // Balance
-    const totalBalance = currentIncome - expenseTotal;
+    const totalBalance = incomeAmount - totalExpense;
 
-    // update balance amount
-    const balanceField = document.getElementById('total-balance');
-    balanceField.innerText = totalBalance;
+    // update balance fields
+    const balanceFieldAmount = document.getElementById('total-balance');
+    balanceFieldAmount.innerText = totalBalance;
 
-    savings();
-    // remaining balance
-    // const remainingBalance = 
-    const remainingField = document.getElementById('remaining-balance');
+    return totalBalance;
 }
 
 
-// calculate button handler
+
+
+
+// ===========================================
+//                  Buttons
+// ===========================================
+
+
+// 1. calculate button handler
 
 document.getElementById('calculate-button').addEventListener('click', function () {
     updateBalance();
@@ -72,8 +87,19 @@ document.getElementById('calculate-button').addEventListener('click', function (
 
 
 
-// save button handler
+
+// 2. save button handler
 
 document.getElementById('save-button').addEventListener('click', function () {
-    updateBalance();
+    const savingsAmount = savings();
+    const balanceTotal = updateBalance();
+
+    // Remaining Balance
+    const remainingBalance = balanceTotal - savingsAmount;
+
+    // update remaining balance fields
+    const reminingBalanceField = document.getElementById('remaining-balance');
+    reminingBalanceField.innerText = remainingBalance;
 })
+
+
