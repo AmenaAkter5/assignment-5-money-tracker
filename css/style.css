@@ -1,13 +1,11 @@
-/* Google Font */
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins&family=Roboto&display=swap');
-
-
-/* Common CSS */
-
-body{
-    font-family: 'Montserrat', sans-serif;
+.headline{
+    color: #0b5ed7;;
 }
+
+.input-field {
+    background-color: #f5f2f2;
+}
+
 
 
 

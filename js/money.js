@@ -54,7 +54,7 @@ function savings() {
 
 
 
-// function - 4: update balance and remaining-balance amount
+// function - 4: update balance and balance field
 
 function updateBalance() {
     const incomeAmount = getInputValue('income-input');
@@ -63,7 +63,7 @@ function updateBalance() {
     // Balance
     const totalBalance = incomeAmount - totalExpense;
 
-    // update balance fields
+    // update balance field
     const balanceFieldAmount = document.getElementById('total-balance');
     balanceFieldAmount.innerText = totalBalance;
 
@@ -84,8 +84,6 @@ function updateBalance() {
 document.getElementById('calculate-button').addEventListener('click', function () {
     updateBalance();
 })
-
-
 
 
 // 2. save button handler
